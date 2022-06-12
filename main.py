@@ -9,6 +9,11 @@ import argparse
 import warnings
 from PIL import Image
 
+FILE = Path(__file__).resolve()
+ROOT = FILE.parents[0]  # YOLOv5 root directory
+if str(ROOT) not in sys.path:
+    sys.path.append(str(ROOT))  # add ROOT to PATH
+ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
 
 def get_subdirs(b='.'):
     '''
@@ -35,7 +40,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--weights', nargs='+', type=str,
-                        default='E:\\gitdemo\\yolov5-streamlit-main\\weights\\last.pt', help='model.pt path(s)')
+                        default=ROOT / 'weights/last.pt', help='model.pt path(s)')
     parser.add_argument('--source', type=str,
                         default='data/images', help='source')
     parser.add_argument('--img-size', type=int, default=640,
