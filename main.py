@@ -13,11 +13,11 @@ FILE = Path(__file__).resolve()
 ROOT = FILE.parents[0]  # YOLOv5 root directory
 if str(ROOT) not in sys.path:
     sys.path.append(str(ROOT))  # add ROOT to PATH
-ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
+ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative"""
 
 def get_subdirs(b='.'):
     '''
-        Returns all sub-directories in a specific Path
+        Returns all sub-directories in a specific Path jeff
     '''
     result = []
     for d in os.listdir(b):
@@ -40,9 +40,9 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--weights', nargs='+', type=str,
-                        default=ROOT / 'weights/last.pt', help='model.pt path(s)')
-    parser.add_argument('--source', type=str,
-                        default='data/images', help='source')
+                        default=ROOT/'weights/last.pt', help='model.pt path(s)')
+    # parser.add_argument('--source', type=str,
+                        #default='data/images', help='source')
     parser.add_argument('--img-size', type=int, default=640,
                         help='inference size (pixels)')
     parser.add_argument('--conf-thres', type=float,
